@@ -4,7 +4,7 @@ import numpy as np
 from scipy.stats import norm
 
 
-chat_id = 123456 # Ваш chat ID, не меняйте название переменной
+chat_id = 721467480 # Ваш chat ID, не меняйте название переменной
 
 def solution(p: float, x: np.array) -> tuple:
     s_2=0
