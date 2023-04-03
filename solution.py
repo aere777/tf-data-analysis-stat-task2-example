@@ -8,10 +8,9 @@ chat_id = 721467480 # Ваш chat ID, не меняйте название пе�
 
 def solution(p: float, x: np.array) -> tuple:
     s_2=0
-    n=len(x)
+    alpha = 1 - p
     for ele in x:
-        s_2=s_2+(ele-x.mean)**2
-    s=(1/(n-1)*s_2)**(1/2)*24
-    t=x.mean/(s*n**(1/2))
-    return x.mean() -t *s/np.sqrt(n), \
-           x.mean() +t *s/np.sqrt(n)
+        s_2=s_2+np.power(ele-x.mean(),2)
+    s=np.sqrt(s_2 / (len(x) - 1))
+    return x.mean() + s * norm.ppf(alpha) / np.sqrt(len(x)), \
+           x.mean() - s * norm.ppf(alpha) / np.sqrt(len(x))
